@@ -8,6 +8,7 @@ variable "elb_names" {
 }
 
 resource "aws_iam_user" "lb" {
-  name  = var.elb_names[count.index]
+  name = var.elb_names[count.index]
+  #or name = "instance.${count.index}"
   count = 3
 }
