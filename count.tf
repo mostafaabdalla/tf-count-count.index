@@ -7,8 +7,8 @@ variable "elb_names" {
   default = ["dev.loadbalancer", "stage.loadbalancer", "prod.loadbalancer"]
 }
 
-resource "aws_iam_user" "lb" {
+resource "aws_elb" "lb" {
   name = var.elb_names[count.index]
-  #or name = "instance.${count.index}"
+  #or name = "loadbalancer.${count.index}"
   count = 3
 }
